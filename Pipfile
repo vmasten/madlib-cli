@@ -11,6 +11,7 @@ flake8 = "*"
 
 [packages]
 pytest = "*"
+pytest-watch = "*"
 
 [requires]
 python_version = "3.6"
