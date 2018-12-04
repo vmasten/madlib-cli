@@ -1,5 +1,8 @@
-"""Recreates the game of Mad Libs, prompting user for
-parts of speech and combining them into a silly story.
+"""Recreates the game of Mad Libs.
+
+First, the user is prompted for parts of speech.
+Then, the prompts are recombined into a silly story
+Finally, the completed story is displayed.
 """
 
 import re
@@ -59,6 +62,10 @@ def parse(raw):
 
 
 def add_response(prompt, responses):
+    """User is prompted for specific input based on previously gathered keys.
+
+    As each response is entered, it is appended into a list to be used later.
+    """
     if prompt[0] == 'A' or 'I':
         # In case the user is asked for an adjective or interjection
         # Can't help but fix grammar whenever possible
@@ -69,6 +76,7 @@ def add_response(prompt, responses):
 
 
 def get_responses(prompts):
+    """Responses are gathered by the helper function above."""
     responses = []
 
     for prompt in prompts:
@@ -76,7 +84,14 @@ def get_responses(prompts):
 
     return responses
 
+
 def output_story(raw):
+    """Call the above helper functions to bring it all together.
+
+    First, the prompts are parsed into a more usable format.
+    Next, the prompts are presented the user to gather parts of speech.
+    Finally, the story is recombined and prepared for display to the user.
+    """
     prompts, stripped = parse(raw)
     responses = get_responses(prompts)
     story = stripped.format(*responses)

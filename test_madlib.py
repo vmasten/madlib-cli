@@ -33,14 +33,14 @@ def test_remove_keys():
 
 def test_parse():
     """Test whether parse works with simple input."""
-    prompts, stripped = madlib.parse('It was a {Adjective} and {Adjective} {Noun}')
+    prompts, stripped = madlib.parse(
+        'It was a {Adjective} and {Adjective} {Noun}')
     assert prompts == ['Adjective', 'Adjective', 'Noun']
     assert stripped == 'It was a {} and {} {}'
 
 
 def test_output_story():
     """Test whether story output is well-formed."""
-
     raw = 'It was a {Adjective} and {Adjective} {Noun}'
 
     input_values = iter(['dark', 'stormy', 'night'])
