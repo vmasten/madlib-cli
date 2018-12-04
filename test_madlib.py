@@ -31,14 +31,6 @@ def test_remove_keys():
     assert madlib.remove_keys(raw) == expected
 
 
-def test_add_response_vowel():
-    sys.stdin = 'annoying'
-    responses = []
-    raw = 'Adjective'
-    madlib.add_response(raw, responses)
-
-
-
 def test_parse():
     """Test whether parse works with simple input."""
     prompts, stripped = madlib.parse('It was a {Adjective} and {Adjective} {Noun}')
